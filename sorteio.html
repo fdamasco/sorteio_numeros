@@ -1,45 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sorteio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        .cabecalho {
+            background-color: #d65349;
+            padding: 60px 50px;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        h1 {
+            color: rgb(255, 255, 255);
+            font-family: "Lobster", Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+            font-size: 60px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 20%;
+            background-color: #fafafa;
+            color: rgb(133, 116, 116);
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
+
 <body>
-    
-    <button>
-        Clique para sortear um processo!</button>
+    <div class="cabecalho">
+        <h1>Sorteie 6 números:</h1>
+        <button>SORTEAR</button>
+    </div>
 
 
 </body>
 <script>
 
     function sorteia() {
-        return Math.round(Math.random()*10);
+        return Math.round(Math.random() * 10);
     }
 
-    function sorteiaProcessos(quantidade){
+    function sorteiaProcessos(quantidade) {
         var processos = [];
         var numero = 1;
-        while(numero <= quantidade){
+        while (numero <= quantidade) {
 
             var numeroAleatorio = sorteia();
-            if(numeroAleatorio !== 0) {
-            var sorteou = false;
+            if (numeroAleatorio !== 0) {
+                var sorteou = false;
 
-            for(var posicao = 0; posicao <processos.length; posicao++) {
-                if(processos[posicao] == numeroAleatorio) {
-                    sorteou = true;
-                    break;
+                for (var posicao = 0; posicao < processos.length; posicao++) {
+                    if (processos[posicao] == numeroAleatorio) {
+                        sorteou = true;
+                        break;
+                    }
+                }
+
+                if (sorteou == false) {
+                    processos.push(numeroAleatorio);
+                    numero++;
                 }
             }
-
-            if(sorteou == false){
-                processos.push(numeroAleatorio);
-                numero++;
-            }      
-        }
         }
 
         return processos;
@@ -49,11 +83,12 @@
 
     function escreva() {
         document.write(processos)
-    } 
-    
+    }
 
-var button = document.querySelector("button");
-button.onclick = escreva;
+
+    var button = document.querySelector("button");
+    button.onclick = escreva;
 
 </script>
+
 </html>
