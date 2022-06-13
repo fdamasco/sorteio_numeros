@@ -1,3 +1,3 @@
-# sorteio_processo
+# sorteio_numeros
 
-[https://fdamasco.github.io/sorteio_numeros/sorteio.html
+https://fdamasco.github.io/sorteio_numeros/sorteio.html
